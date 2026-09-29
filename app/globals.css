@@ -1,0 +1,137 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1a1a1a;
+}
+
+.site-nav {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.5rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 1rem 1.5rem;
+}
+
+.site-footer a {
+  color: #1a1a1a;
+  font-size: 0.9rem;
+}
+
+main {
+  padding: 2rem 1.5rem;
+}
+
+article {
+  max-width: 40rem;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #128c7e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  background: #0e6f63;
+}
+
+button.cta-button {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+button.cta-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 28rem;
+  margin-top: 2rem;
+}
+
+.enquiry-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-weight: 500;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  font: inherit;
+}
+
+.enquiry-form button {
+  align-self: flex-start;
+}
+
+.form-error {
+  color: #b91c1c;
+  margin: 0;
+}
+
+.form-success {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.faq-list {
+  margin-top: 1.5rem;
+}
+
+.faq-list div {
+  margin-bottom: 1.5rem;
+}
+
+.faq-list dt {
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+}
+
+.faq-list dd {
+  margin: 0;
+  color: #444;
+}
