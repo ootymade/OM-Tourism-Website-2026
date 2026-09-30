@@ -23,6 +23,8 @@ export default async function ExperiencesPage() {
       body={page.body_content}
       ctaText={page.cta_text}
       ctaAction={page.cta_action}
+      imageSrc="/images/experiences-tea-plantation.jpg"
+      imageAlt="Lush tea plantation on rolling hills"
     />
   );
 }

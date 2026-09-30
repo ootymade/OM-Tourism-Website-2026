@@ -23,6 +23,8 @@ export default async function TravelPage() {
       body={page.body_content}
       ctaText={page.cta_text}
       ctaAction={page.cta_action}
+      imageSrc="/images/travel-ghat-road.jpg"
+      imageAlt="Winding hairpin mountain road through green hills"
     />
   );
 }

@@ -23,6 +23,8 @@ export default async function StayPage() {
       body={page.body_content}
       ctaText={page.cta_text}
       ctaAction={page.cta_action}
+      imageSrc="/images/stay-hillview.jpg"
+      imageAlt="Stone cottage in the hills, similar to Nilgiris homestays"
     />
   );
 }

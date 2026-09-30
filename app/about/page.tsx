@@ -23,6 +23,8 @@ export default async function AboutPage() {
       body={page.body_content}
       ctaText={page.cta_text}
       ctaAction={page.cta_action}
+      imageSrc="/images/about-ooty-lake.jpg"
+      imageAlt="Misty hills and lake in Ooty, Tamil Nadu"
     />
   );
 }
