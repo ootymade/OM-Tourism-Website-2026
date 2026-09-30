@@ -1,137 +1,65 @@
-:root {
-  color-scheme: light;
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1e3a1a;
+  --color-forest-dark: #142711;
+  --color-gold: #c9a84c;
+  --color-gold-dark: #b3903a;
+  --color-cream: #f5efe0;
+  --color-mint: #ccefc0;
+
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
+@layer base {
+  body {
+    @apply bg-cream text-forest font-body leading-relaxed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-heading font-semibold text-forest;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply text-base md:text-lg text-forest/80 leading-relaxed;
+  }
+
+  a {
+    @apply text-inherit;
+  }
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: #1a1a1a;
-}
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+  }
 
-.site-nav {
-  border-bottom: 1px solid #e5e5e5;
-}
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3
+      font-body font-semibold text-forest shadow-sm transition
+      hover:-translate-y-0.5 hover:bg-gold-dark hover:shadow-md
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest
+      disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-gold;
+  }
 
-.site-nav ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 1rem 1.5rem;
-}
-
-.site-nav a {
-  text-decoration: none;
-  color: #1a1a1a;
-  font-weight: 500;
-}
-
-.site-nav a:hover {
-  text-decoration: underline;
-}
-
-.site-footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 1rem 1.5rem;
-}
-
-.site-footer a {
-  color: #1a1a1a;
-  font-size: 0.9rem;
-}
-
-main {
-  padding: 2rem 1.5rem;
-}
-
-article {
-  max-width: 40rem;
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: #128c7e;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 0.375rem;
-  font-weight: 600;
-}
-
-.cta-button:hover {
-  background: #0e6f63;
-}
-
-button.cta-button {
-  border: none;
-  cursor: pointer;
-  font: inherit;
-}
-
-button.cta-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.enquiry-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 28rem;
-  margin-top: 2rem;
-}
-
-.enquiry-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-  font-weight: 500;
-}
-
-.enquiry-form input,
-.enquiry-form textarea {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 0.375rem;
-  font: inherit;
-}
-
-.enquiry-form button {
-  align-self: flex-start;
-}
-
-.form-error {
-  color: #b91c1c;
-  margin: 0;
-}
-
-.form-success {
-  margin-top: 2rem;
-  padding: 1rem;
-  border-radius: 0.375rem;
-  background: #ecfdf5;
-  color: #065f46;
-}
-
-.faq-list {
-  margin-top: 1.5rem;
-}
-
-.faq-list div {
-  margin-bottom: 1.5rem;
-}
-
-.faq-list dt {
-  font-weight: 600;
-  margin-bottom: 0.375rem;
-}
-
-.faq-list dd {
-  margin: 0;
-  color: #444;
+  .field-input {
+    @apply w-full rounded-lg border border-forest/20 bg-white px-3.5 py-2.5 font-body text-forest
+      placeholder:text-forest/40 transition
+      focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/50;
+  }
 }

@@ -1,4 +1,5 @@
 import { sql } from "@/lib/db";
+import { PageHero } from "@/components/PageHero";
 
 export default async function ExperiencesPage() {
   const [page] = await sql`
@@ -8,17 +9,20 @@ export default async function ExperiencesPage() {
   `;
 
   if (!page) {
-    return <h1>Experiences</h1>;
+    return (
+      <div className="container-page py-16">
+        <h1>Experiences</h1>
+      </div>
+    );
   }
 
   return (
-    <article>
-      <h1>{page.page_title}</h1>
-      <p>{page.pain_point}</p>
-      <p>{page.body_content}</p>
-      <a className="cta-button" href={page.cta_action}>
-        {page.cta_text}
-      </a>
-    </article>
+    <PageHero
+      title={page.page_title}
+      painPoint={page.pain_point}
+      body={page.body_content}
+      ctaText={page.cta_text}
+      ctaAction={page.cta_action}
+    />
   );
 }

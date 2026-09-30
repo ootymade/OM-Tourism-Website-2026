@@ -1,4 +1,5 @@
 import { sql } from "@/lib/db";
+import { PageHero } from "@/components/PageHero";
 import { EnquiryForm } from "@/components/EnquiryForm";
 
 export default async function ContactPage() {
@@ -9,15 +10,17 @@ export default async function ContactPage() {
   `;
 
   return (
-    <article>
-      <h1>{page?.page_title ?? "Contact"}</h1>
-      {page && (
-        <>
-          <p>{page.pain_point}</p>
-          <p>{page.body_content}</p>
-        </>
-      )}
-      <EnquiryForm />
-    </article>
+    <>
+      <PageHero
+        title={page?.page_title ?? "Contact"}
+        painPoint={page?.pain_point}
+        body={page?.body_content}
+      />
+      <section className="container-page py-16 md:py-24">
+        <div className="max-w-xl">
+          <EnquiryForm />
+        </div>
+      </section>
+    </>
   );
 }
