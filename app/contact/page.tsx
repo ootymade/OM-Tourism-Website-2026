@@ -1,13 +1,19 @@
-import { sql } from "@/lib/db";
+import type { Metadata } from "next";
+import { getPage } from "@/lib/pages";
+import { buildPageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/PageHero";
 import { EnquiryForm } from "@/components/EnquiryForm";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("contact");
+  return buildPageMetadata({
+    title: page?.meta_title ?? page?.page_title ?? "Contact | OotyMade Tourism",
+    description: page?.meta_description,
+  });
+}
+
 export default async function ContactPage() {
-  const [page] = await sql`
-    select page_title, pain_point, body_content
-    from pages
-    where slug = 'contact'
-  `;
+  const page = await getPage("contact");
 
   return (
     <>

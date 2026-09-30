@@ -11,6 +11,13 @@ export async function submitEnquiry(
   _prevState: EnquiryFormState,
   formData: FormData
 ): Promise<EnquiryFormState> {
+  // Honeypot: real users never see or fill this field. If it's filled, it's a bot —
+  // pretend success and drop the submission without touching the database.
+  const honeypot = (formData.get("website") as string | null)?.trim();
+  if (honeypot) {
+    return { success: true };
+  }
+
   const name = (formData.get("name") as string | null)?.trim() ?? "";
   const phone = (formData.get("phone") as string | null)?.trim() ?? "";
 

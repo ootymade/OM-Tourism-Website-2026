@@ -1,12 +1,19 @@
-import { sql } from "@/lib/db";
+import type { Metadata } from "next";
+import { getPage } from "@/lib/pages";
+import { buildPageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/PageHero";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("experiences");
+  return buildPageMetadata({
+    title: page?.meta_title ?? page?.page_title ?? "Experiences | OotyMade Tourism",
+    description: page?.meta_description,
+    image: "/images/experiences-tea-plantation.jpg",
+  });
+}
+
 export default async function ExperiencesPage() {
-  const [page] = await sql`
-    select page_title, pain_point, body_content, cta_text, cta_action
-    from pages
-    where slug = 'experiences'
-  `;
+  const page = await getPage("experiences");
 
   if (!page) {
     return (

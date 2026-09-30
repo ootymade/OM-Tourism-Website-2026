@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tourism.ootymade.com"),
   title: "OotyMade Tourism",
   description: "Ooty travel, stays, experiences, and packages.",
 };

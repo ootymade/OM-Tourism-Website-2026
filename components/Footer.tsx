@@ -12,6 +12,30 @@ export function Footer() {
                 FAQ
               </Link>
             </li>
+            <li>
+              <Link
+                href="/plan-your-day"
+                className="text-sm text-cream/80 transition-colors hover:text-gold"
+              >
+                Plan Your Day
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/privacy"
+                className="text-sm text-cream/80 transition-colors hover:text-gold"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/terms"
+                className="text-sm text-cream/80 transition-colors hover:text-gold"
+              >
+                Terms of Service
+              </Link>
+            </li>
           </ul>
         </nav>
         <p className="text-xs text-cream/60">

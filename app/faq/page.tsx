@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { sql } from "@/lib/db";
+import { buildPageMetadata } from "@/lib/metadata";
 import { FaqAccordion } from "@/components/FaqAccordion";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Frequently Asked Questions | OotyMade Tourism",
+  description:
+    "Answers to common questions about visiting Ooty — E-Pass rules, weather, taxis, and how OotyMade Tourism arranges your trip.",
+});
 
 export default async function FaqPage() {
   const faqs = await sql`

@@ -1,13 +1,20 @@
-import { sql } from "@/lib/db";
+import type { Metadata } from "next";
+import { getPage } from "@/lib/pages";
+import { buildPageMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/PageHero";
 import { ContentCards } from "@/components/ContentCards";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("packages");
+  return buildPageMetadata({
+    title: page?.meta_title ?? page?.page_title ?? "Packages | OotyMade Tourism",
+    description: page?.meta_description,
+    image: "/images/packages-family-trip.jpg",
+  });
+}
+
 export default async function PackagesPage() {
-  const [page] = await sql`
-    select page_title, pain_point, body_content, cta_text, cta_action
-    from pages
-    where slug = 'packages'
-  `;
+  const page = await getPage("packages");
 
   if (!page) {
     return (
